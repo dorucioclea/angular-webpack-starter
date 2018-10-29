@@ -1,12 +1,12 @@
 "use strict";
-const root = require('./helpers.js').root
+const root = require('./helpers.js').root;
 const ip = require('ip');
 
 exports.HOST = ip.address();
-exports.DEV_PORT = 3000;
+exports.DEV_PORT = 4444;
 exports.E2E_PORT = 4201;
 exports.PROD_PORT = 8088;
-exports.UNIVERSAL_PORT = 8000;
+exports.UNIVERSAL_PORT = 8888;
 
 exports.SHOW_WEBPACK_BUNDLE_ANALYZER = false;
 
@@ -44,7 +44,7 @@ exports.DEV_SERVER_WATCH_OPTIONS = {
  * specifies which @ngrx dev tools will be available when you build and load
  * your app in dev mode. Options are: logger | none
  */
-exports.STORE_DEV_TOOLS = 'logger'
+exports.STORE_DEV_TOOLS = 'logger';
 
 exports.EXCLUDE_SOURCE_MAPS = [
   // these packages have problems with their sourcemaps
