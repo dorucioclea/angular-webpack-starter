@@ -1,4 +1,5 @@
 "use strict";
+/* jshint ignore:start */
 const root = require('./helpers.js').root;
 const ip = require('ip');
 
@@ -90,3 +91,4 @@ exports.MY_TEST_RULES = [
 exports.MY_TEST_PLUGINS = [
   // use this to import your own Test webpack config plugins.
 ]
+/* jshint ignore:end */

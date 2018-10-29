@@ -1,7 +1,4 @@
 /*jshint esversion: 6 */
-// Let's have it locally. Run "workbox copyLibraries dist"
-// importScripts('workbox-v3.0.0/workbox-sw.js');
-// SETTINGS
 // Verbose logging even for the production
 workbox.setConfig({
   debug: true
@@ -32,62 +29,11 @@ workbox.routing.registerRoute(
   })
 );
 
-
 /** @type {Console} */
 const logger = 'context' in console ? console.context('service-worker') : console;
 
-addEventListener('fetch', event => {
-  event.waitUntil(async function() {
-    // Exit early if we don't have access to the client.
-    // Eg, if it's cross-origin.
-    if (!event.clientId) return;
-
-    // Get the client.
-    const client = await clients.get(event.clientId);
-    // Exit early if we don't get the client.
-    // Eg, if it closed.
-    if (!client) return;
-
-    // Send a message to the client.
-    self.clients.matchAll().then(function (clients){
-      clients.forEach(function(client){
-        client.postMessage({
-          msg: "Hey I just got a fetch from you!",
-          url: event.request.url
-        });
-      });
-    });
-   
-  }());
-});
-
-addEventListener('fetch', event => {
-  event.waitUntil(async function() {
-    // Exit early if we don't have access to the client.
-    // Eg, if it's cross-origin.
-    if (!event.clientId) return;
-
-    // Get the client.
-    const client = await clients.get(event.clientId);
-    // Exit early if we don't get the client.
-    // Eg, if it closed.
-    if (!client) return;
-
-    // Send a message to the client.
-    self.clients.matchAll().then(function (clients){
-      clients.forEach(function(client){
-        client.postMessage({
-          msg: "Hey I just got a fetch from you!",
-          url: event.request.url
-        });
-      });
-    });
-   
-  }());
-});
-
 self.addEventListener('fetch', event => {
-  event.waitUntil(async function() {
+  event.waitUntil(function() { 
     // If the request is of type POST, we want to check its response status. An added improvement would be to ensure
     // we only do this for requests to the eva backend, but we would need to figure out a way to load in the current environment endpoints here
     //
@@ -108,15 +54,15 @@ self.addEventListener('fetch', event => {
           //
           if (res.status === 403) {
             // Get the client.
-            const client = await clients.get(event.clientId);
-            // messageClient('auth', 'reauthorize', event.clientId)
 
-            if (client) {
-              client.postMessage({
-                channel: 'auth',
-                message: 'reauthorize'
-              });
-            }
+            clients.get(event.clientId).then((client) => {
+              if (client) {
+                client.postMessage({
+                  channel: 'auth',
+                  message: 'reauthorize'
+                });
+              }
+            });
           }
         })
         .catch(error => {
@@ -127,5 +73,5 @@ self.addEventListener('fetch', event => {
       //
       event.respondWith(response);
     }
-  });
+  }); // jshint ignore:line
 });
