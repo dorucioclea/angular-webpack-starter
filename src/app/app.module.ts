@@ -10,14 +10,7 @@ import { ApplicationRef, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-
-import { Store } from '@ngrx/store';
-
-import { take } from 'rxjs/operators';
-
+import { RouterModule } from '@angular/router';
 import {
   BrowserTransferStateModule
 } from '../modules/transfer-state/browser-transfer-state.module';
@@ -31,7 +24,6 @@ import { routes } from './app.routing';
 
 import { AppComponent } from './app.component';
 
-import { AppState } from './reducers';
 
 @NgModule({
   declarations: [
@@ -55,33 +47,5 @@ import { AppState } from './reducers';
 })
 
 export class AppModule {
-  constructor(public appRef: ApplicationRef,
-    private _store: Store<AppState>) { }
-
-  hmrOnInit(store) {
-    if (!store || !store.rootState) return;
-
-    // restore state by dispatch a SET_ROOT_STATE action
-    if (store.rootState) {
-      this._store.dispatch({
-        type: 'SET_ROOT_STATE',
-        payload: store.rootState
-      });
-    }
-
-    if ('restoreInputValues' in store) { store.restoreInputValues(); }
-    this.appRef.tick();
-    Object.keys(store).forEach(prop => delete store[prop]);
-  }
-  hmrOnDestroy(store) {
-    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-    this._store.pipe(take(1)).subscribe(s => store.rootState = s);
-    store.disposeOldHosts = createNewHosts(cmpLocation);
-    store.restoreInputValues = createInputTransfer();
-    removeNgStyles();
-  }
-  hmrAfterDestroy(store) {
-    store.disposeOldHosts();
-    delete store.disposeOldHosts;
-  }
+  constructor(public appRef: ApplicationRef) { }
 }
