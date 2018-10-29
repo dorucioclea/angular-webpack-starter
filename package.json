@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "npm run sass && npm run build:dll",
     "rimraf": "rimraf",
-    "webdev": "webpack-dev-server",
+    "webdev": "webpack-dev-server --host 0.0.0.0 --port 4444",
     "webdev:hmr": "npm run webdev -- --hotOnly --hot --inline",
     "webpack": "webpack",
     "webdriver-manager": "webdriver-manager",
