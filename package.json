@@ -85,7 +85,8 @@
     "universal": "npm run build:universal && npm run server:universal",
     "universal:aot": "npm run build:universal:aot && npm run server:universal",
     "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal",
-    "workbox-build-inject": "node workbox-build-inject.js"
+    "workbox-build-inject": "node workbox-build-inject.js",
+    "workbox": "node ./node_modules/workbox-cli/build/bin.js"
   },
   "dependencies": {
     "@angular/animations": "~6.0.3",
@@ -122,6 +123,7 @@
     "ngrx-store-logger": "~0.2.1",
     "rxjs": "~6.2.0",
     "web-animations-js": "^2.3.1",
+    "workbox-sw": "3.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

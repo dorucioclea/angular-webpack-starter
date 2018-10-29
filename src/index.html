@@ -13,6 +13,26 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>#str-dlls { display: none }</style>
+
+  <script>
+		// Check that service workers are registered
+		if ('serviceWorker' in navigator) {
+		  console.log('Navigator object has the service worker feature');
+		  // Use the window load event to keep the page load performant
+		  window.addEventListener('load', () => {
+			console.log('in the load event of windfow.');
+			navigator.serviceWorker.register('/sw.js').then(() => {
+			  console.log('after sw registration');
+			  
+			}).catch(error => {
+			  console.error('Error with registration of service worker', error);
+			});
+		  });
+		} else {
+		  console.log('Navigator object does not have the service worker feature');
+		}
+	
+	  </script>
 </head>
 
 <body>
@@ -32,25 +52,7 @@
     <%= '<' %>/script
     <%= '>' %>
   </div>
-  <script>
-    console.log('in script');
-    // Check that service workers are registered
-    if ('serviceWorker' in navigator) {
-      console.log('Navigator has service worker');
-      // Use the window load event to keep the page load performant
-      window.addEventListener('load', () => {
-        console.log('in the load event of windfow.');
-        navigator.serviceWorker.register('/sw.js').then(() => {
-          console.log('after sw registration');
-        }).catch(error => {
-          console.error('Error with registration of service worker', error);
-        });
-      });
-    } else {
-      console.log('navigator has no service worker');
-    }
-
-  </script>
+  
 
   <script src="/index.js"></script>
 </body>
