@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Angular 2 App</title>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,32 +12,27 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>#str-dlls { display: none }</style>
-
   <script>
 		// Check that service workers are registered
 		if ('serviceWorker' in navigator) {
-		  console.log('Navigator object has the service worker feature');
+		  console.log('Navigator object has the service worker feature.');
 		  // Use the window load event to keep the page load performant
 		  window.addEventListener('load', () => {
-			console.log('in the load event of windfow.');
 			navigator.serviceWorker.register('/sw.js').then(() => {
-			  console.log('after sw registration');
-			  
+			  console.log('ServiceWorker instance registered successfully.');
 			}).catch(error => {
-			  console.error('Error with registration of service worker', error);
+			  console.error('Error with registration of ServiceWorker: ', error);
 			});
 		  });
 		} else {
-		  console.log('Navigator object does not have the service worker feature');
+		  console.log('Navigator object does not have the service worker feature.');
 		}
-	
 	  </script>
 </head>
 
 <body>
   <my-app>
     Loading...
-
   </my-app>
   <script type="text/javascript" src="hammer.min.js"></script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=console.*,Intl.~locale.en&gated=1"></script>
@@ -52,8 +46,6 @@
     <%= '<' %>/script
     <%= '>' %>
   </div>
-  
-
   <script src="/index.js"></script>
 </body>
 

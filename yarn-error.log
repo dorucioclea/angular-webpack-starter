@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add workbook-sw@3.0.0
+  C:\Program Files\nodejs\node.exe C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add workbox-build-inject: node workbox-build-inject.js,
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\doru.cioclea\bin;C:\Program Files\Docker\Docker\Resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn;C:\Program Files\Microsoft SQL Server\130\DTS\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files\dotnet;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio;C:\Program Files\TortoiseGit\bin;C:\Program Files\PuTTY;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Program Files\Dart\dart-sdk\bin;C:\Program Files (x86)\Brackets\command;C:\WINDOWS\System32\OpenSSH;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin;C:\Ruby25-x64\bin;C:\Users\doru.cioclea\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\doru.cioclea\AppData\Local\Programs\Python\Python36-32;C:\Users\doru.cioclea\AppData\Local\Microsoft\WindowsApps;C:\Users\doru.cioclea\AppData\Local\GitHubDesktop\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\doru.cioclea\AppData\Local\Microsoft\WindowsApps;C:\Users\doru.cioclea\AppData\Roaming\npm;C:\Users\doru.cioclea\AppData\Roaming\nvm;C:\Program Files\nodejs
@@ -14,17 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/workbook-sw: Not found
-      at Request.params.callback [as _callback] (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65656:18)
-      at Request.self.callback (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:134675:22)
-      at Request.emit (events.js:180:13)
-      at Request.<anonymous> (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:135658:10)
-      at Request.emit (events.js:180:13)
-      at IncomingMessage.<anonymous> (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:135578:12)
-      at Object.onceWrapper (events.js:272:13)
-      at IncomingMessage.emit (events.js:185:15)
-      at endReadableNT (_stream_readable.js:1106:12)
-      at process._tickCallback (internal/process/next_tick.js:178:19)
+  Error: workbox-build-inject:: Invalid URI "workbox-build-inject:/"
+      at Request.module.exports.Request.init (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:134763:31)
+      at new Request (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:134617:8)
+      at request (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:131616:10)
+      at RequestManager.execute (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65708:15)
+      at RequestManager.shiftQueue (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65735:10)
+      at C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65486:13
+      at new Promise (<anonymous>)
+      at new F (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
+      at RequestManager.request (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65484:19)
+      at NpmRegistry.request (C:\Users\doru.cioclea\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:31153:32)
 
 npm manifest: 
   {
@@ -84,28 +84,28 @@ npm manifest:
       "server:universal": "nodemon dist/server.js",
       "debug:build": "node-nightly --inspect --debug-brk node_modules/webpack/bin/webpack.js",
       "build": "npm run build:prod",
-      "build:aot": "npm run build:aot:prod && npm run workbox-build-inject",
-      "build:aot:prod": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:aot:prod:e2e": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:aot:dev": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:dev": "npm run clean:dist && webpack && npm run workbox-build-inject",
-      "build:dll": "npm run clean:dll && npm run sass && webpack && npm run workbox-build-inject",
-      "build:prod": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:prod:e2e": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:server": "npm run build:server:prod && npm run workbox-build-inject",
-      "build:server:aot": "npm run build:server:aot:prod && npm run workbox-build-inject",
-      "build:server:aot:dev": "npm run sass && webpack && npm run workbox-build-inject",
-      "build:server:aot:prod": "npm run sass && webpack && npm run workbox-build-inject",
-      "build:server:aot:prod:e2e": "npm run sass && webpack && npm run workbox-build-inject",
-      "build:server:dev": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:server:prod": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:universal": "npm run build:universal:prod && npm run workbox-build-inject",
-      "build:universal:aot": "npm-run-all -p build:aot build:server:aot && npm run workbox-build-inject",
-      "build:universal:aot:dev": "npm-run-all -p build:aot:dev build:server:aot:dev && npm run workbox-build-inject",
-      "build:universal:aot:e2e": "npm-run-all -p build:aot:prod:e2e build:server:aot:prod:e2e && npm run workbox-build-inject",
-      "build:universal:dev": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:universal:prod": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
-      "build:universal:prod:e2e": "npm run clean:dist && npm run sass && webpack && npm run workbox-build-inject",
+      "build:aot": "npm run build:aot:prod",
+      "build:aot:prod": "npm run clean:dist && npm run sass && webpack",
+      "build:aot:prod:e2e": "npm run clean:dist && npm run sass && webpack",
+      "build:aot:dev": "npm run clean:dist && npm run sass && webpack",
+      "build:dev": "npm run clean:dist && webpack",
+      "build:dll": "npm run clean:dll && npm run sass && webpack",
+      "build:prod": "npm run clean:dist && npm run sass && webpack",
+      "build:prod:e2e": "npm run clean:dist && npm run sass && webpack",
+      "build:server": "npm run build:server:prod",
+      "build:server:aot": "npm run build:server:aot:prod",
+      "build:server:aot:dev": "npm run sass && webpack",
+      "build:server:aot:prod": "npm run sass && webpack",
+      "build:server:aot:prod:e2e": "npm run sass && webpack",
+      "build:server:dev": "npm run clean:dist && npm run sass && webpack",
+      "build:server:prod": "npm run clean:dist && npm run sass && webpack",
+      "build:universal": "npm run build:universal:prod",
+      "build:universal:aot": "npm-run-all -p build:aot build:server:aot",
+      "build:universal:aot:dev": "npm-run-all -p build:aot:dev build:server:aot:dev",
+      "build:universal:aot:e2e": "npm-run-all -p build:aot:prod:e2e build:server:aot:prod:e2e",
+      "build:universal:dev": "npm run clean:dist && npm run sass && webpack",
+      "build:universal:prod": "npm run clean:dist && npm run sass && webpack",
+      "build:universal:prod:e2e": "npm run clean:dist && npm run sass && webpack",
       "watch": "npm run watch:dev",
       "watch:aot": "npm-run-all -p -r \"build:aot:dev -- --watch\" sass:watch",
       "watch:dev": "npm-run-all -p -r \"build:dev -- --watch\" sass:watch",
@@ -114,7 +114,7 @@ npm manifest:
       "universal": "npm run build:universal && npm run server:universal",
       "universal:aot": "npm run build:universal:aot && npm run server:universal",
       "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal",
-      "workbox-build-inject": "node workbox-build-inject.js"
+      "workbox": "node ./node_modules/workbox-cli/build/bin.js"
     },
     "dependencies": {
       "@angular/animations": "~6.0.3",
@@ -151,6 +151,7 @@ npm manifest:
       "ngrx-store-logger": "~0.2.1",
       "rxjs": "~6.2.0",
       "web-animations-js": "^2.3.1",
+      "workbox-sw": "3.0.0",
       "zone.js": "~0.8.26"
     },
     "devDependencies": {
@@ -217,8 +218,8 @@ npm manifest:
       "webpack-md5-hash": "^0.0.6",
       "webpack-merge": "~4.1.2",
       "webpack-node-externals": "^1.6.0",
-      "workbox-build": "3.0.0",
-      "workbox-cli": "3.0.0"
+      "workbox-build": "3.6.3",
+      "workbox-cli": "3.6.3"
     },
     "license": "Apache-2.0",
     "bugs": {
@@ -10514,41 +10515,19 @@ Lockfile:
     version "0.0.3"
     resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
   
-  workbox-background-sync@^3.0.0, workbox-background-sync@^3.6.3:
+  workbox-background-sync@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-background-sync/-/workbox-background-sync-3.6.3.tgz#6609a0fac9eda336a7c52e6aa227ba2ae532ad94"
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-broadcast-cache-update@^3.0.0, workbox-broadcast-cache-update@^3.6.3:
+  workbox-broadcast-cache-update@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-broadcast-cache-update/-/workbox-broadcast-cache-update-3.6.3.tgz#3f5dff22ada8c93e397fb38c1dc100606a7b92da"
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-build@3.0.0:
-    version "3.0.0"
-    resolved "http://registry.npmjs.org/workbox-build/-/workbox-build-3.0.0.tgz#1913c03ff86b1ff2b59d7e7fc29246148b0dab2c"
-    dependencies:
-      babel-runtime "^6.26.0"
-      common-tags "^1.4.0"
-      fs-extra "^4.0.2"
-      glob "^7.1.2"
-      joi "^11.1.1"
-      lodash.template "^4.4.0"
-      pretty-bytes "^4.0.2"
-      workbox-background-sync "^3.0.0"
-      workbox-broadcast-cache-update "^3.0.0"
-      workbox-cache-expiration "^3.0.0"
-      workbox-cacheable-response "^3.0.0"
-      workbox-core "^3.0.0"
-      workbox-google-analytics "^3.0.0"
-      workbox-precaching "^3.0.0"
-      workbox-routing "^3.0.0"
-      workbox-strategies "^3.0.0"
-      workbox-sw "^3.0.0"
-  
-  workbox-build@^3.0.0:
+  workbox-build@3.6.3, workbox-build@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-build/-/workbox-build-3.6.3.tgz#77110f9f52dc5d82fa6c1c384c6f5e2225adcbd8"
     dependencies:
@@ -10575,21 +10554,21 @@ Lockfile:
       workbox-streams "^3.6.3"
       workbox-sw "^3.6.3"
   
-  workbox-cache-expiration@^3.0.0, workbox-cache-expiration@^3.6.3:
+  workbox-cache-expiration@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-cache-expiration/-/workbox-cache-expiration-3.6.3.tgz#4819697254a72098a13f94b594325a28a1e90372"
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-cacheable-response@^3.0.0, workbox-cacheable-response@^3.6.3:
+  workbox-cacheable-response@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-cacheable-response/-/workbox-cacheable-response-3.6.3.tgz#869f1a68fce9063f6869ddbf7fa0a2e0a868b3aa"
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-cli@3.0.0:
-    version "3.0.0"
-    resolved "http://registry.npmjs.org/workbox-cli/-/workbox-cli-3.0.0.tgz#15ac57b3c6add38d856f0fa2622cef8a538ad729"
+  workbox-cli@3.6.3:
+    version "3.6.3"
+    resolved "https://registry.yarnpkg.com/workbox-cli/-/workbox-cli-3.6.3.tgz#a0b2ef2fa4776de507dec7addb082b15fd2b2f0f"
     dependencies:
       chalk "^2.1.0"
       common-tags "^1.4.0"
@@ -10600,13 +10579,13 @@ Lockfile:
       ora "^1.3.0"
       pretty-bytes "^4.0.2"
       update-notifier "^2.3.0"
-      workbox-build "^3.0.0"
+      workbox-build "^3.6.3"
   
-  workbox-core@^3.0.0, workbox-core@^3.6.3:
+  workbox-core@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-3.6.3.tgz#69abba70a4f3f2a5c059295a6f3b7c62bd00e15c"
   
-  workbox-google-analytics@^3.0.0, workbox-google-analytics@^3.6.3:
+  workbox-google-analytics@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-google-analytics/-/workbox-google-analytics-3.6.3.tgz#99df2a3d70d6e91961e18a6752bac12e91fbf727"
     dependencies:
@@ -10621,7 +10600,7 @@ Lockfile:
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-precaching@^3.0.0, workbox-precaching@^3.6.3:
+  workbox-precaching@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-precaching/-/workbox-precaching-3.6.3.tgz#5341515e9d5872c58ede026a31e19bafafa4e1c1"
     dependencies:
@@ -10633,13 +10612,13 @@ Lockfile:
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-routing@^3.0.0, workbox-routing@^3.6.3:
+  workbox-routing@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-routing/-/workbox-routing-3.6.3.tgz#659cd8f9274986cfa98fda0d050de6422075acf7"
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-strategies@^3.0.0, workbox-strategies@^3.6.3:
+  workbox-strategies@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-strategies/-/workbox-strategies-3.6.3.tgz#11a0dc249a7bc23d3465ec1322d28fa6643d64a0"
     dependencies:
@@ -10651,7 +10630,11 @@ Lockfile:
     dependencies:
       workbox-core "^3.6.3"
   
-  workbox-sw@^3.0.0, workbox-sw@^3.6.3:
+  workbox-sw@3.0.0:
+    version "3.0.0"
+    resolved "http://registry.npmjs.org/workbox-sw/-/workbox-sw-3.0.0.tgz#3380c95007dfd1e18e4ff11a31ac64d124c8e1f7"
+  
+  workbox-sw@^3.6.3:
     version "3.6.3"
     resolved "https://registry.yarnpkg.com/workbox-sw/-/workbox-sw-3.6.3.tgz#278ea4c1831b92bbe2d420da8399176c4b2789ff"
   
