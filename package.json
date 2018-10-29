@@ -59,7 +59,7 @@
     "build:aot:prod": "npm run clean:dist && npm run sass && webpack",
     "build:aot:prod:e2e": "npm run clean:dist && npm run sass && webpack",
     "build:aot:dev": "npm run clean:dist && npm run sass && webpack",
-    "build:dev": "npm run clean:dist && webpack",
+    "build:dev": "npm run clean:dist && webpack && npm run workbox-build-inject",
     "build:dll": "npm run clean:dll && npm run sass && webpack",
     "build:prod": "npm run clean:dist && npm run sass && webpack",
     "build:prod:e2e": "npm run clean:dist && npm run sass && webpack",
@@ -84,7 +84,8 @@
     "watch:universal": "npm-run-all -p -r \"build:universal -- -- --watch\" sass:watch",
     "universal": "npm run build:universal && npm run server:universal",
     "universal:aot": "npm run build:universal:aot && npm run server:universal",
-    "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal"
+    "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal",
+    "workbox-build-inject": "node workbox-build-inject.js"
   },
   "dependencies": {
     "@angular/animations": "~6.0.3",

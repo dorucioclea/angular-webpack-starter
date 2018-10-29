@@ -16,7 +16,7 @@
 <body>
 	<my-app>
 		Loading...
-		
+
 	</my-app>
 	<script type="text/javascript" src="hammer.min.js"></script>
 	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=console.*,Intl.~locale.en&gated=1"></script>
@@ -24,6 +24,17 @@
 		<%= '<' %>script src="/polyfill.dll.js"<%= '>' %><%= '<' %>/script<%= '>' %>
 		<%= '<' %>script src="/vendor.dll.js"<%= '>' %><%= '<' %>/script<%= '>' %>
 	</div>
+	
+	<script>
+		// Check that service workers are registered
+		if ('serviceWorker' in navigator) {
+		  // Use the window load event to keep the page load performant
+		  window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/sw.js');
+		  });
+		}
+	  </script>
+	
 	<script src="/index.js"></script>
 </body>
 </html>

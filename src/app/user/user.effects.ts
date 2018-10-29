@@ -25,13 +25,13 @@ export class UserEffects {
     ofType(UserActionTypes.Logout),
     // .map((action: Logout) => action.payload)
     switchMap(() => this.userService.logout()
-    .pipe(
-      mergeMap((res) => of(
-        new LogoutSuccess(res)
-      )
-      ),
-      catchError((err) => of(
-        new LogoutFail(err)
-      ))
-    )));
+      .pipe(
+        mergeMap((res) => of(
+          new LogoutSuccess(res)
+        )
+        ),
+        catchError((err) => of(
+          new LogoutFail(err)
+        ))
+      )));
 }
