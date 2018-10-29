@@ -186,7 +186,9 @@
     "webpack-filter-warnings-plugin": "^1.2.0",
     "webpack-md5-hash": "^0.0.6",
     "webpack-merge": "~4.1.2",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-node-externals": "^1.6.0",
+    "workbox-build": "3.0.0",
+    "workbox-cli": "3.0.0"
   },
   "license": "Apache-2.0",
   "bugs": {
