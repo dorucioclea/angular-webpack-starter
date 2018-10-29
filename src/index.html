@@ -18,7 +18,7 @@
 		  console.log('Navigator object has the service worker feature.');
 		  // Use the window load event to keep the page load performant
 		  window.addEventListener('load', () => {
-			navigator.serviceWorker.register('/sw.js').then(() => {
+			navigator.serviceWorker.register('/service-worker.js').then(() => {
 			  console.log('ServiceWorker instance registered successfully.');
 			}).catch(error => {
 			  console.error('Error with registration of ServiceWorker: ', error);

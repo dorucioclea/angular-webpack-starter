@@ -25,6 +25,8 @@ import {
   SHOW_WEBPACK_BUNDLE_ANALYZER,
 } from './constants';
 
+import { InjectManifest } from 'workbox-webpack-plugin';
+
 const {
   DefinePlugin,
   DllPlugin,
@@ -184,6 +186,9 @@ const commonConfig = (function webpackConfig(): WebpackConfig {
     new NamedModulesPlugin(),
     new FilterWarningsPlugin({
       exclude: /System\.import/,
+    }),
+    new InjectManifest({
+      swSrc: 'src/service-worker.js'
     }),
     ...MY_CLIENT_PLUGINS,
   ];
