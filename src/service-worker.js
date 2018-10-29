@@ -73,5 +73,5 @@ self.addEventListener('fetch', event => {
       //
       event.respondWith(response);
     }
-  }); // jshint ignore:line
+  });
 });
