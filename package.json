@@ -86,7 +86,8 @@
     "universal:aot": "npm run build:universal:aot && npm run server:universal",
     "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal",
     "workbox": "node ./node_modules/workbox-cli/build/bin.js",
-    "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp"
+    "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp",
+    "docker-stop": "docker ps | grep angularexampleapp | awk '{print $1}' | xargs docker stop"
   },
   "dependencies": {
     "@angular/animations": "~6.0.3",
