@@ -1,18 +1,18 @@
 FROM node:8-alpine as builder
 
-COPY package.json yarn.lock ./
+COPY package.json ./
 
-RUN yarn set progress=false && yarn config set depth 0 && yarn cache clean --force
+RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN yarn install && mkdir /ng-app && cp -R ./node_modules ./ng-app
+RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 
 WORKDIR /ng-app
 
 COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/yarn build:prod
+RUN npm run build:prod
 
 FROM nginx:1.13.3-alpine
 
