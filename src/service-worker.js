@@ -10,8 +10,6 @@ workbox.skipWaiting();
 workbox.clientsClaim();
 
 // PRECACHING
-
-// We inject manifest here using "workbox-build" in workbox-build-inject.js
 workbox.precaching.precacheAndRoute([]);
 
 // RUNTIME CACHING
