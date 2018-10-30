@@ -110,6 +110,7 @@
     "@ngrx/store": "6.0.1",
     "@ngrx/store-devtools": "6.0.1",
     "@nguniversal/express-engine": "6.0.0",
+    "@types/lodash": "^4.14.117",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
     "cookie-parser": "1.4.3",

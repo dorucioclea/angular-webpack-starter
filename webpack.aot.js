@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const { root } = require('./helpers');
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 

@@ -1,7 +1,4 @@
-/**
- * @authors: @qdouble and @AngularClass
- */
-
+/*jshint esversion: 6 */
 /*
  * When testing with webpack and ES6, we have to do some extra
  * things to get testing to work right. Because we are gonna write tests

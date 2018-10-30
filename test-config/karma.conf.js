@@ -1,6 +1,4 @@
-/**
- * @authors: @qdouble and @AngularClass
- */
+/*jshint esversion: 6 */
 
 const ENV = process.env.npm_lifecycle_event;
 const runOnce = ENV === 'test:once' || ENV === 'test:once:ci';

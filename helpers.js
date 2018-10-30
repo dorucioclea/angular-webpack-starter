@@ -1,7 +1,4 @@
-/**
- * @authors: @qdouble and @AngularClass
- */
-
+/*jshint esversion: 6 */
 const path = require('path');
 const fs = require('fs');
 
@@ -35,7 +32,7 @@ function root(args) {
 
 function testDll() {
   if (!fs.existsSync('./dll/polyfill.dll.js') || !fs.existsSync('./dll/vendor.dll.js')) {
-    throw "DLL files do not exist, please use 'npm run build:dll' once to generate dll files.";
+    throw "DLL files do not exist, please use 'yarn build:dll' once to generate dll files.";
   }
 };
 

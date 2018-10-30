@@ -1,6 +1,4 @@
-/**
- * @authors: @qdouble and @AngularClass
- */
+/*jshint esversion: 6 */
 const webpack = require('webpack');
 const root = require('../helpers').root;
 
